@@ -44,10 +44,18 @@ pipeline{
             }
         }
 
-        stage("check worker node connectivity"){
+        stage("check worker nodes connectivity"){
             steps{
                 sh 'ansible all -m ping'
             }
         }
+
+        stage("check test.yml"){
+            steps{
+                sh 'ansible-playbook test.yml --syntax-check'
+            }
+        }
+
+
     }
 }
