@@ -9,5 +9,11 @@ pipeline{
                 sh 'ls'
             }
         }
+
+        stage("create a zip file"){
+            steps{
+                sh 'wget https://github.com/Hossnia/session-061324/archive/refs/heads/main.zip'
+            }
+        }
     }
 }
