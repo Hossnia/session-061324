@@ -31,14 +31,16 @@ pipeline{
         }
 
         stage("deliver playbooks on /home/ec2-user/ansible"){
-            steps {
+            steps{
                 sh 'mkdir /home/ec2-user/ansible'
                 sh 'cp -f /home/ec2-user/jenkins/workspace/ansible-playbook/main.zip /home/ec2-user/ansible'
-                sh 'cd /home/ec2-user/ansible'
-                sh 'unzip main.zip'
-                sh 'rm -f main.zip'
-                sh 'cp -rf session-061324-main/* .'
-                sh 'rm -rf session-061324-main/'
+                sh '''
+                cd /home/ec2-user/ansible
+                unzip -o main.zip
+                rm -f main.zip
+                cp -rf session-061324-main/* .
+                rm -rf session-061324-main/
+                '''
             }
         }
     }
