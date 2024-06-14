@@ -21,5 +21,13 @@ pipeline{
                 sh 'wget https://github.com/Hossnia/session-061324/archive/refs/heads/main.zip'
             }
         }
+
+        stage("Upload zip file in jfrog"){
+            steps{
+                sh 'curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd \
+                -T /home/ec2-user/jenkins/workspace/ansible-playbook/main.zip \
+                "http://ec2-100-25-118-58.compute-1.amazonaws.com:8081/artifactory/ansible-playbook/playbooks.zip${BUILD_ID}"'
+            }
+        }
     }
 }
