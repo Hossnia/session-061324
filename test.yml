@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   vars:
-    - path_ec2: /home/ec2-user/sudy-session
+    - path_ec2: /home/ec2-user/study-session
     - path_ubuntu: /home/ubuntu/study-session
   tasks:
     - name: create new file on Amazon linux node

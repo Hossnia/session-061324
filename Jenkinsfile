@@ -52,7 +52,10 @@ pipeline{
 
         stage("check test.yml"){
             steps{
-                sh 'ansible-playbook test.yml --syntax-check'
+                sh '''
+                cd /home/ec2-user/ansible
+                ansible-playbook test.yml --syntax-check
+                '''
             }
         }
 
