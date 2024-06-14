@@ -7,12 +7,12 @@
   tasks:
     - name: create new file on Amazon linux node
       file:
-        - path: "{{ path_ec2 }}"
-        - state: touch
+        path: "{{ path_ec2 }}"
+        state: touch
       when: ansible_os_family=="RedHat"
 
     - name: create new file on Ubuntu node
       file:
-        - path: "{{ path_ubuntu }}"
-        - state: touch
+        path: "{{ path_ubuntu }}"
+        state: touch
       when: ansible_os_family=="Debian"
