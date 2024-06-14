@@ -32,7 +32,7 @@ pipeline{
 
         stage("deliver playbooks on /home/ec2-user/ansible"){
             steps{
-                sh 'mkdir /home/ec2-user/ansible'
+                sh 'mkdir -p /home/ec2-user/ansible'
                 sh 'cp -f /home/ec2-user/jenkins/workspace/ansible-playbook/main.zip /home/ec2-user/ansible'
                 sh '''
                 cd /home/ec2-user/ansible
