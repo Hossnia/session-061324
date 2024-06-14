@@ -43,5 +43,11 @@ pipeline{
                 '''
             }
         }
+
+        stage("check worker node connectivity"){
+            steps{
+                sh 'ansible-playbook all -m ping'
+            }
+        }
     }
 }
